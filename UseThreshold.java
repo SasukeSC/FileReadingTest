@@ -1,0 +1,104 @@
+import java.io.*;
+import java.util.Scanner;
+
+public class UseThreshold {
+ 
+ private String fileName;
+ private double realNumberThreshold;
+ 
+public UseThreshold(){
+  
+  fileName = "number1.txt";
+  realNumberThreshold = 5;
+  }
+ public UseThreshold(String fileName,double realNumberThreshold){
+  
+  this.fileName = fileName;
+  this.realNumberThreshold = realNumberThreshold;
+  }
+ 
+ public String getFileName() {
+  return fileName;
+ }
+ 
+ public double getRealNumberThreshold() {
+  return realNumberThreshold;
+ }
+ 
+ public String setFileName(String fileName) {
+  this.fileName = fileName;
+  return fileName;
+ }
+ 
+ public int setRealNumberThreshold(int realNumberThreshold) {
+  this.realNumberThreshold = realNumberThreshold;
+  return realNumberThreshold;
+ }
+ 
+ public int getCount() throws IOException
+ {  
+    int counter = 0;
+    File file = new File(fileName);
+    Scanner scan = new Scanner(file);
+    while(scan.hasNextDouble())
+    {
+        if (scan.nextDouble()> realNumberThreshold)
+        {
+            counter++;
+        }
+    }
+    System.out.println(counter);
+    return counter;
+ }
+ public double getSum() throws IOException
+ {  
+    double sum = 0;
+    File file = new File(fileName);
+    Scanner scan = new Scanner(file);
+    while(scan.hasNextDouble())
+    {
+      double kek = scan.nextDouble();
+        if (kek> realNumberThreshold)
+        {
+            sum = sum + kek;
+        }
+    }
+    System.out.println(sum);
+    return sum;
+ }
+ public double getMax() throws IOException
+ {  
+    double max = 0;
+    File file = new File(fileName);
+    Scanner scan = new Scanner(file);
+    while(scan.hasNextDouble())
+    {
+      double kek = scan.nextDouble();
+        if (kek> realNumberThreshold && kek>max)
+        { 
+          
+          max = kek;
+          
+        }
+    }
+    System.out.println(max);
+    return max;
+ }
+ public String toString()
+ {
+  System.out.println("Filename: " + fileName + "\nThreshold: " + realNumberThreshold);
+    return "Filename: " + fileName + "\nThreshold: " + realNumberThreshold;
+ }
+
+
+ 
+ public static void main(String[] args) throws IOException {
+  // TODO Auto-generated method stub
+  File file = 
+         new File("numbers1.text"); 
+       Scanner key = new Scanner(file); 
+     
+       while (key.hasNextInt()) 
+         System.out.println(key.nextLine()); 
+     } 
+ }
